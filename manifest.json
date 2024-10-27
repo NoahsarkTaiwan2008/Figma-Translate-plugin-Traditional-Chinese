@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
-  "name": "FigmaCN",
-  "short_name": "FigmaCN",
-  "description": "中文 Figma 插件，设计师人工翻译校验。",
-  "version": "1.2.4",
-  "homepage_url": "https://figma.cool",
+  "manifest_version": 3,
+  "name": "Figma繁體中文翻譯插件",
+  "short_name": "Figma TW plugin",
+  "description": "將Figma介面翻譯成繁體中文",
+  "version": "1.0.0",
+  "homepage_url": "https://github.com/NoahsarkTaiwan2008/Figma-Translate-plugin-Traditional-Chinese",
   "icons": {
     "16": "img/icon-16.png",
     "48": "img/icon-48.png",
@@ -22,9 +22,7 @@
       "all_frames": true
     }
   ],
-  "background": {
-    "scripts": [
-      "js/background.js"
-    ]
-  }
+  "permissions": [
+    "activeTab"
+  ]
 }

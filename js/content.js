@@ -3138,7 +3138,6 @@ let MutationObserverConfig = {
   characterData: true
 };
 
-// 初始化時轉換一次翻译數組格式，避免 MutationObserver 觸發時重復轉換
 const dataMap = new Map();
 allData.forEach(([key, val]) => {
   if (key && !dataMap.has(key)) {
@@ -3156,14 +3155,8 @@ let observer = new MutationObserver(function (mutations) {
     NodeFilter.SHOW_ALL,
     {
       acceptNode: function (node) {
-        /**
-         * [issue](https://github.com/Figma-Cool/figmaCN/issues/143)
-         * 
-         * 跳過 local variable 設定面板中的的名稱節點，避免 local variable 裡面的名稱被翻译
-         */
         const nodeUnderVariableInput = node.classList && node.classList.value.includes('variable_name--root');
         if (nodeUnderVariableInput) {
-          // 這個節點以下的子節點（包括該節點）全部過濾掉
           return NodeFilter.FILTER_REJECT;
         }
 
